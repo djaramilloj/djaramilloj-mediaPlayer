@@ -1,0 +1,23 @@
+{
+  "name": "js_profesional",
+  "version": "1.0.0",
+  "description": "js professional code",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html ejercicios/**/*.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "juan david jaramillo",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.7"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "@djaramilloj1/mediaplayer": "^1.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+<html>
+    <body>
+        
+        <img id="huge-img" height="400">
+        <button id="loadb">cargar</button>
+        <button id="stopb">dteener
+        </button>
+
+        <script>
+            const url = 'https://imgur.com/6vhKmQV';
+            let controller = new AbortController()
+            const img = document.getElementById('huge-img');
+            const loadb = document.getElementById('loadb')
+            const stopb = document.getElementById('stopb');
+
+            loadb.onclick = async () => {
+                startLoad();
+                
+                try {
+                    const response = await fetch(url, {signal: controller.signal});
+                    const blob = await response.blob();
+                    const imgUrl = URL.createObjectURL(blob);
+                    img.src = imgUrl;
+                } catch (error){
+                    alert('hubo un error: ', error)
+                    console.log(error);
+                }
+                
+
+                stopLoad();
+            }
+
+            stopb.onclick = async () => {
+                controller.abort();
+                stopLoad();
+            }
+
+            function startLoad() {
+                loadb.disabled = true;
+                loadb.innerText = 'loadin....'
+                stopb.disabled = false;
+            }
+
+            function stopLoad() {
+                loadb.disabled = false;
+                loadb.innerText = 'big ass image'
+                stopb.disabled = true;
+            }
+        </script>
+    </body>
+</html>
